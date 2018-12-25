@@ -285,7 +285,7 @@ if __name__ == '__main__':
     var = 1
     index = 1
     while var == 1 :
-      time.sleep(200)
+      time.sleep(2)
 
       data = options.znode_size * "x"
       servers = get_zk_servers(options.configfile)
@@ -331,4 +331,4 @@ if __name__ == '__main__':
       for s in sessions:
           s.close()
 
-      print("Latency test complete " + index)
+      print("this Latency test has completed: ", index)
