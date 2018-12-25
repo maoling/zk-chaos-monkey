@@ -332,5 +332,5 @@ if __name__ == '__main__':
       # close sessions
       for s in sessions:
           s.close()
-
+      index ++
       print("this Latency test has completed: ", index)
