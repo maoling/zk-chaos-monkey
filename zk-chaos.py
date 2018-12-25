@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import datetime, time, os
+import datetime, time, os, random
 from optparse import OptionParser
 
 import zkclient
@@ -285,7 +285,9 @@ if __name__ == '__main__':
     var = 1
     index = 1
     while var == 1 :
-      time.sleep(2)
+      sleeptime = random.randint(0, 10)
+      print("this sleep time :", sleeptime)
+      time.sleep(sleeptime)
 
       data = options.znode_size * "x"
       servers = get_zk_servers(options.configfile)
