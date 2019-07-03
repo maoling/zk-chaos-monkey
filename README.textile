@@ -176,5 +176,5 @@ deleted 100 ephemeral znodes in 128 ms (1.286640 ms/op 777.218080/sec)
 Latency test complete
 </pre>
 
-nohup ./zk-chaos.py --servers "localhost:2181" --root_znode="/zk-latencies_4" --znode_count=10000 --znode_size=100 --synchronous &
-nohup ./zk-chaos.py --servers "localhost:2181" --root_znode="/zk-latencies_5" --znode_count=10000 --znode_size=100 --asynchronous &
+nohup ./zk-chaos.py --servers "localhost:2181" --root_znode="/zk-latencies_9" --znode_count=1000 --znode_size=100 --synchronous &
+nohup ./zk-chaos.py --servers "localhost:2181" --root_znode="/zk-latencies_5" --znode_count=10000 --znode_size=100 --synchronous &

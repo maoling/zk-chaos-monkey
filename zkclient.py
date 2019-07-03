@@ -41,7 +41,8 @@ class ZKClient(object):
         self.conn_cv.release()
 
         if not self.connected:
-            raise ZKClientError("Unable to connect to %s" % (servers))
+            print("Unable to connect to the server.")
+            # raise ZKClientError("Unable to connect to %s" % (servers))
 
         if not options.quiet:
             print("Connected in %d ms, handle is %d"

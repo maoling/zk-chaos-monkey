@@ -37,7 +37,8 @@ parser.add_option("", "--root_znode", dest="root_znode",
                   default="/zk-latencies", help="root for the test, will be created as part of test (default /zk-latencies)")
 parser.add_option("", "--znode_size", dest="znode_size", type="int",
                   default=25, help="data size when creating/setting znodes (default %default)")
-parser.add_option("", "--znode_count", dest="znode_count", default=10000, type="int",
+defaultZnodeCount = random.randint(0, 10000)
+parser.add_option("", "--znode_count", dest="znode_count", default=defaultZnodeCount, type="int",
                   help="the number of znodes to operate on in each performance section (default %default)")
 parser.add_option("", "--watch_multiple", dest="watch_multiple", default=1, type="int",
                   help="number of watches to put on each znode (default %default)")
@@ -283,12 +284,9 @@ def get_zk_servers(filename):
 if __name__ == '__main__':
 
     var = 1
-    index = 1
+    index = 0
     while var == 1 :
-      sleeptime = random.randint(0, 10)
-      print("this sleep time :", sleeptime)
-      time.sleep(sleeptime)
-
+      options.znode_count = random.randint(0, 10000)
       data = options.znode_size * "x"
       servers = get_zk_servers(options.configfile)
 
@@ -333,4 +331,7 @@ if __name__ == '__main__':
       for s in sessions:
           s.close()
       index += 1
-      print("this Latency test has completed: ", index)
+      print("this Latency test has completed! this run-round index: ", index)
+      sleeptime = random.randint(0, 600)
+      print("this sleep time.the unit is s:", sleeptime)
+      time.sleep(sleeptime)
